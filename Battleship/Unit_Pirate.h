@@ -5,7 +5,7 @@
 
 using namespace std;
 
-// Юниты гномов
+
 class Unit_Pirate {
 public:
     virtual void info() = 0;
