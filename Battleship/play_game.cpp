@@ -51,7 +51,7 @@ public:
                 cout << endl << "Это карта игры." << endl;
                 cout << "Ваша цель победить противника в верхнем правом углу." << endl;
                 map_8_1();
-                /*Добавили здания героя*/
+                /*Добавили здания*/
                 Pirate_Shipyard Shipyard_1;
                 Pirate_castle castle_1;
                 Shipyard_1.zero_army();
@@ -66,8 +66,7 @@ public:
                 race_hero = "Man";
                 cout << endl << "Это карта игры." << endl;
                 cout << "Ваша цель победить противника в верхнем правом углу." << endl;
-                map_8_1();
-                /*Добавили здания героя*/
+                map_8_1()
                 Man_Shipyard Shipyard_1;
                 Man_castle castle_1;
                 Shipyard_1.zero_army();
@@ -239,9 +238,9 @@ public:
         cout << "| Горнизон:                                |" << endl;
         Army* castle_army = main_observe.get_building(1)->get_army();
         vector<int> number_unit_first = castle_army->get_number_unit();
-        cout << "| Кол-во пехоты:    " << number_unit_first[0] << endl;
-        cout << "| Кол-во лучников:  " << number_unit_first[1] << endl;
-        cout << "| Кол-во кавалерии: " << number_unit_first[2] << endl;
+        cout << "| Кол-во лодок:    " << number_unit_first[0] << endl;
+        cout << "| Кол-во корабль:  " << number_unit_first[1] << endl;
+        cout << "| Кол-во подводный: " << number_unit_first[2] << endl;
         cout << "############################################" << endl;
         cout << "| Пополнить свою армию?                    |" << endl;
         cout << "############################################" << endl;
@@ -272,9 +271,9 @@ public:
         cout << "| Горнизон:                                |" << endl;
         Army* caserm_army = main_observe.get_building(0)->get_army();
         vector<int> number_unit_first = caserm_army->get_number_unit();
-        cout << "| Кол-во пехоты:    " << number_unit_first[0] << endl;
-        cout << "| Кол-во лучников:  " << number_unit_first[1] << endl;
-        cout << "| Кол-во кавалерии: " << number_unit_first[2] << endl;
+        cout << "| Кол-во лодок:    " << number_unit_first[0] << endl;
+        cout << "| Кол-во корабль:  " << number_unit_first[1] << endl;
+        cout << "| Кол-во подводный: " << number_unit_first[2] << endl;
         cout << "############################################" << endl;
         cout << "| Пополнить свою армию?                    |" << endl;
         cout << "############################################" << endl;
@@ -592,7 +591,7 @@ public:
         cout << "| Статистика:                              |" << endl;
         cout << "############################################" << endl;
         cout << "| Имя вашего героя: " << my_hero.get_name_hero() << endl;
-        cout << "| Прибавка к урону от сокровищ: " << my_hero.get_treasure() << "%" << endl;
+        cout << "| Прибавка у от сокровищ: " << my_hero.get_treasure() << "%" << endl;
         cout << "| Сила вашей армии:  " << my_hero.get_power_army()
              << " + " << my_hero.get_power_army() * 0.01 * my_hero.get_treasure()
              << " = " << my_hero.get_power_army() + my_hero.get_power_army() * 0.01 * my_hero.get_treasure() << endl;
@@ -616,7 +615,7 @@ private:
     bool flag_use_treasure;                          // взято ли сокровище
     vector<vector<string> > map_game;                // карта
     int time;
-    Observe main_observe;                            // Отвечает за увеличение войнов в зданиях
+    Observe main_observe;                            // Отвечает за увеличение корабль
 };
 
 #include "change_level.hpp"
