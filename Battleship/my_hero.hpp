@@ -76,7 +76,7 @@ public:
     }
 
     void info_race() override {
-        cout << "Я человек, дитя природы..." << endl;
+        cout << "Я человек" << endl;
     }
 
     int get_power_army() override {
@@ -93,7 +93,7 @@ public:
     }
 
     void info_race() override {
-        cout << "Я пират, дитя гор..." << endl;
+        cout << "Я пират" << endl;
     }
 
     int get_power_army() override {
