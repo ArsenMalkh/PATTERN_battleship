@@ -61,9 +61,9 @@ public:
     }
 
 protected:
-    string name;                                                // имя героя
+    string name;                                                // имя
     Director dir;                                               // создали класс распорядитель
-    Army *sea_warriors;                                             // армия героя
+    Army *sea_warriors;                                         // армия
     int value_treasure;                                         // увеличение мощи сокровищем
     pair<int, int> now_position;                                // текущая позиция игрока (x, y)
 };
@@ -72,11 +72,11 @@ class Man_hero : public Hero {
 public:
     Man_hero(){
         Man_army_builder Man_builder;
-        sea_warriors = dir.createArmy(Man_builder, Boats, Ships, Submarines);     // создали базовый комлект войнов для эльфов
+        sea_warriors = dir.createArmy(Man_builder, Boats, Ships, Submarines);
     }
 
     void info_race() override {
-        cout << "Я эльф, дитя природы..." << endl;
+        cout << "Я человек, дитя природы..." << endl;
     }
 
     int get_power_army() override {
@@ -89,11 +89,11 @@ class Pirate_hero : public Hero {
 public:
     Pirate_hero(){
         Pirate_army_builder Pirate_builder;
-        sea_warriors = dir.createArmy(Pirate_builder, Boats, Ships, Submarines);     // создали базовый комлект войнов для эльфов
+        sea_warriors = dir.createArmy(Pirate_builder, Boats, Ships, Submarines);
     }
 
     void info_race() override {
-        cout << "Я гном, дитя гор..." << endl;
+        cout << "Я пират, дитя гор..." << endl;
     }
 
     int get_power_army() override {
