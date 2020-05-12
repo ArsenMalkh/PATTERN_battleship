@@ -1,7 +1,7 @@
 #pragma once
 #include "Unit_Pirate.h"
 
-// Фабрика гномов
+
 class Factory_Pirate {
 public:
     virtual Unit_Pirate *Create() = 0;
