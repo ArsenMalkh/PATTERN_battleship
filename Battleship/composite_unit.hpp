@@ -59,7 +59,7 @@ private:
     std::vector<Unit_Pirate *> c;
 };
 
-// Вспомогательная функция для создания легиона эльфов
+// Вспомогательная функция для создания легиона людей
 Composite_Unit_of_Man *create_legion_Man(int x, int y, int z) {
     // Легион людей содержит:
     Composite_Unit_of_Man *legion = new Composite_Unit_of_Man;
@@ -73,9 +73,9 @@ Composite_Unit_of_Man *create_legion_Man(int x, int y, int z) {
     return legion;
 }
 
-// Вспомогательная функция для создания легиона гномов
+
 Composite_Unit_Pirate *create_legion_Pirate(int x, int y, int z) {
-    // Легион людей содержит:
+    
     Composite_Unit_Pirate *legion = new Composite_Unit_Pirate;
     for (int i = 0; i < x; ++i)
         legion->addUnit(new Pirate_Boat);
