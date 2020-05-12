@@ -4,7 +4,7 @@
 
 using namespace std;
 
-// Юниты эльфов
+
 class Unit_of_Man {
 public:
     virtual void info() = 0;
