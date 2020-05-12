@@ -26,7 +26,7 @@ auto association_army(Director dir, Army *first_army, Army *second_army) {
     return new_army;
 };
 
-// функция для битвы войск
+// функция для битвы
 template <typename t_1, typename  t_2>
 auto battle_army(Director dir, t_1 first_army, t_2 second_army) {
     vector<int> number_unit_first = first_army->get_number_unit();
