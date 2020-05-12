@@ -1,7 +1,7 @@
 #include "Unit_Man.h"
 #pragma once
 
-// Фабрика эльфов
+
 class Factory_Man {
 public:
     virtual Unit_of_Man *Create() = 0;
