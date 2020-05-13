@@ -1,4 +1,4 @@
-#include "army_tools.hpp"
+#include "Fleet_tools.hpp"
 #include "const_value_level_1.h"
 #include "const_value_level_2.h"
 #include "my_hero.hpp"
@@ -54,8 +54,8 @@ public:
                 /*Добавили здания*/
                 Pirate_Shipyard Shipyard_1;
                 Pirate_castle castle_1;
-                Shipyard_1.zero_army();
-                castle_1.zero_army();
+                Shipyard_1.zero_Fleet();
+                castle_1.zero_Fleet();
                 main_observe.add_building(Shipyard_1);
                 main_observe.add_building(castle_1);
                 /*запуск*/
@@ -66,11 +66,11 @@ public:
                 race_hero = "Man";
                 cout << endl << "Это карта игры." << endl;
                 cout << "Ваша цель победить противника в верхнем правом углу." << endl;
-                map_8_1()
+                map_8_1();
                 Man_Shipyard Shipyard_1;
                 Man_castle castle_1;
-                Shipyard_1.zero_army();
-                castle_1.zero_army();
+                Shipyard_1.zero_Fleet();
+                castle_1.zero_Fleet();
                 main_observe.add_building(Shipyard_1);
                 main_observe.add_building(castle_1);
                 /*запуск*/
@@ -236,8 +236,8 @@ public:
         cout << "|                  Замок.                  |" << endl;
         cout << "############################################" << endl;
         cout << "| Горнизон:                                |" << endl;
-        Army* castle_army = main_observe.get_building(1)->get_army();
-        vector<int> number_unit_first = castle_army->get_number_unit();
+        Fleet* castle_Fleet = main_observe.get_building(1)->get_Fleet();
+        vector<int> number_unit_first = castle_Fleet->get_number_unit();
         cout << "| Кол-во лодок:    " << number_unit_first[0] << endl;
         cout << "| Кол-во корабль:  " << number_unit_first[1] << endl;
         cout << "| Кол-во подводный: " << number_unit_first[2] << endl;
@@ -269,8 +269,8 @@ public:
         cout << "|                Bерфь.                  |" << endl;
         cout << "############################################" << endl;
         cout << "| Горнизон:                                |" << endl;
-        Army* caserm_army = main_observe.get_building(0)->get_army();
-        vector<int> number_unit_first = caserm_army->get_number_unit();
+        Fleet* caserm_Fleet = main_observe.get_building(0)->get_Fleet();
+        vector<int> number_unit_first = caserm_Fleet->get_number_unit();
         cout << "| Кол-во лодок:    " << number_unit_first[0] << endl;
         cout << "| Кол-во корабль:  " << number_unit_first[1] << endl;
         cout << "| Кол-во подводный: " << number_unit_first[2] << endl;
@@ -298,11 +298,11 @@ public:
 
     void interaction_castle(Hero &my_hero) {
         if (my_hero.get_position_player() == make_pair(0, 0)) {
-            Army* hero_army = my_hero.get_army();
-            Army* castle_army = main_observe.get_building(1)->get_army();
+            Fleet* hero_Fleet = my_hero.get_Fleet();
+            Fleet* castle_Fleet = main_observe.get_building(1)->get_Fleet();
             Director dir;
-            my_hero.new_army(association_army(dir, hero_army, castle_army));
-            main_observe.get_building(1)->zero_army();
+            my_hero.new_Fleet(association_Fleet(dir, hero_Fleet, castle_Fleet));
+            main_observe.get_building(1)->zero_Fleet();
             cout << endl;
             cout << "############################################" << endl;
             cout << "|           Вы пополнили армию.            |" << endl;
@@ -313,11 +313,11 @@ public:
 
     void interaction_caserm(Hero &my_hero) {
         if (my_hero.get_position_player() == make_pair(2, 0)) {
-            Army* hero_army = my_hero.get_army();
-            Army* castle_army = main_observe.get_building(0)->get_army();
+            Fleet* hero_Fleet = my_hero.get_Fleet();
+            Fleet* castle_Fleet = main_observe.get_building(0)->get_Fleet();
             Director dir;
-            my_hero.new_army(association_army(dir, hero_army, castle_army));
-            main_observe.get_building(0)->zero_army();
+            my_hero.new_Fleet(association_Fleet(dir, hero_Fleet, castle_Fleet));
+            main_observe.get_building(0)->zero_Fleet();
             cout << endl;
             cout << "############################################" << endl;
             cout << "|           Вы пополнили армию.            |" << endl;
@@ -332,7 +332,7 @@ public:
         cout << "##########################################" << endl;
         cout << "|           Итоговая битва.              |" << endl;
         cout << "##########################################" << endl;
-        cout << "| Сила противника: " << my_enemy.get_power_army() <<  "                  |" << endl;
+        cout << "| Сила противника: " << my_enemy.get_power_Fleet() <<  "                  |" << endl;
         cout << "##########################################" << endl;
         cout << "|           Хотите напасть?              |" << endl;
         cout << "##########################################" << endl;
@@ -344,9 +344,9 @@ public:
             cout << "Ваш выбор: ";
             cin >> text;
             if (text == "1") {
-                if (my_hero.get_power_army() > my_enemy.get_power_army())
+                if (my_hero.get_power_Fleet() > my_enemy.get_power_Fleet())
                     win();
-                else if (my_hero.get_power_army() == my_enemy.get_power_army())
+                else if (my_hero.get_power_Fleet() == my_enemy.get_power_Fleet())
                     drawn_game();
                 else
                     defeat();
@@ -592,9 +592,9 @@ public:
         cout << "############################################" << endl;
         cout << "| Имя вашего героя: " << my_hero.get_name_hero() << endl;
         cout << "| Прибавка у от сокровищ: " << my_hero.get_treasure() << "%" << endl;
-        cout << "| Сила вашей армии:  " << my_hero.get_power_army()
-             << " + " << my_hero.get_power_army() * 0.01 * my_hero.get_treasure()
-             << " = " << my_hero.get_power_army() + my_hero.get_power_army() * 0.01 * my_hero.get_treasure() << endl;
+        cout << "| Сила вашей армии:  " << my_hero.get_power_Fleet()
+             << " + " << my_hero.get_power_Fleet() * 0.01 * my_hero.get_treasure()
+             << " = " << my_hero.get_power_Fleet() + my_hero.get_power_Fleet() * 0.01 * my_hero.get_treasure() << endl;
         cout << "| Было сделано: " << time << " ходов." << endl;
         cout << "############################################" << endl;
         cout << "| Состав вашей армии:                        " << endl;

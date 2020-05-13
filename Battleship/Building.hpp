@@ -1,5 +1,5 @@
 #include "my_hero.hpp"
-#include "army_tools.hpp"
+#include "Fleet_tools.hpp"
 #pragma once
 
 class Game;
@@ -12,16 +12,16 @@ public:
         cout << "I am building" << endl;
     }
 
-    Army* get_army() {
+    Fleet* get_Fleet() {
         return sea_warriors_in_build;
     }
 
-    virtual void zero_army() = 0;
+    virtual void zero_Fleet() = 0;
 
     virtual void up_number_sea_warrior(Game &game) = 0;
 protected:
     Director dir;                                    
-    Army *sea_warriors_in_build;                         
+    Fleet *sea_warriors_in_build;                         
 };
 
 
@@ -48,29 +48,29 @@ public:
 class Man_Shipyard : public Shipyard {
 public:
     void up_number_sea_warrior(Game &game) override {
-        Man_army_builder Man_builder;
-        Army* new_sea_warriors_in_build = dir.createArmy(Man_builder, 0, 10, 0);
-        sea_warriors_in_build = association_army(dir, sea_warriors_in_build, new_sea_warriors_in_build);
+        Man_Fleet_builder Man_builder;
+        Fleet* new_sea_warriors_in_build = dir.createFleet(Man_builder, 0, 10, 0);
+        sea_warriors_in_build = association_Fleet(dir, sea_warriors_in_build, new_sea_warriors_in_build);
     }
 
-    void zero_army() override {
-        Man_army_builder Man_builder;
-        sea_warriors_in_build = dir.createArmy(Man_builder, 0, 0, 0);
+    void zero_Fleet() override {
+        Man_Fleet_builder Man_builder;
+        sea_warriors_in_build = dir.createFleet(Man_builder, 0, 0, 0);
     }
 };
 
 class Pirate_Shipyard : public Shipyard {
 public:
     void up_number_sea_warrior(Game &game) override {
-        Pirate_army_builder Pirate_builder;
-        Army* new_sea_warriors_in_build = dir.createArmy(Pirate_builder, 0, 10, 0);
-        sea_warriors_in_build = association_army(dir, sea_warriors_in_build, new_sea_warriors_in_build);
+        Pirate_Fleet_builder Pirate_builder;
+        Fleet* new_sea_warriors_in_build = dir.createFleet(Pirate_builder, 0, 10, 0);
+        sea_warriors_in_build = association_Fleet(dir, sea_warriors_in_build, new_sea_warriors_in_build);
         cout << endl;
     }
 
-    void zero_army() override {
-        Pirate_army_builder Pirate_builder;
-        sea_warriors_in_build = dir.createArmy(Pirate_builder, 0, 0, 0);
+    void zero_Fleet() override {
+        Pirate_Fleet_builder Pirate_builder;
+        sea_warriors_in_build = dir.createFleet(Pirate_builder, 0, 0, 0);
 
     }
 };
@@ -82,28 +82,28 @@ public:
 class Man_castle : public Castle {
 public:
     void up_number_sea_warrior(Game &game) override {
-        Man_army_builder Man_builder;
-        Army* new_sea_warriors_in_build = dir.createArmy(Man_builder, 5, 5, 5);
-        sea_warriors_in_build = association_army(dir, sea_warriors_in_build, new_sea_warriors_in_build);
+        Man_Fleet_builder Man_builder;
+        Fleet* new_sea_warriors_in_build = dir.createFleet(Man_builder, 5, 5, 5);
+        sea_warriors_in_build = association_Fleet(dir, sea_warriors_in_build, new_sea_warriors_in_build);
     }
 
-    void zero_army() override  {
-        Man_army_builder Man_builder;
-        sea_warriors_in_build = dir.createArmy(Man_builder, 0, 0, 0);
+    void zero_Fleet() override  {
+        Man_Fleet_builder Man_builder;
+        sea_warriors_in_build = dir.createFleet(Man_builder, 0, 0, 0);
     }
 };
 
 class Pirate_castle : public Castle {
 public:
     void up_number_sea_warrior(Game &game) override {
-        Pirate_army_builder Pirate_builder;
-        Army* new_sea_warriors_in_build = dir.createArmy(Pirate_builder, 5, 5, 5);
-        sea_warriors_in_build = association_army(dir, sea_warriors_in_build, new_sea_warriors_in_build);
+        Pirate_Fleet_builder Pirate_builder;
+        Fleet* new_sea_warriors_in_build = dir.createFleet(Pirate_builder, 5, 5, 5);
+        sea_warriors_in_build = association_Fleet(dir, sea_warriors_in_build, new_sea_warriors_in_build);
     }
 
-    void zero_army() override {
-        Pirate_army_builder Pirate_builder;
-        sea_warriors_in_build = dir.createArmy(Pirate_builder, 0, 0, 0);
+    void zero_Fleet() override {
+        Pirate_Fleet_builder Pirate_builder;
+        sea_warriors_in_build = dir.createFleet(Pirate_builder, 0, 0, 0);
     }
 };
 

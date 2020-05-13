@@ -6,13 +6,13 @@ set(SOURCE_EXE  Unit_Man.h
                 Unit_Pirate.h  
                 Factory_Of_Man.hpp 
                 Factory_Of_Pirate.hpp 
-                Army_builder.hpp
-                army_tools.hpp 
+                Fleet_builder.hpp
+                Fleet_tools.hpp 
                 composite_unit.hpp 
                 play_game.cpp 
                 const_values/const_value_level_1.h 
                 const_values/const_value_level_2.h
-                const_values/first_value_army.h
+                const_values/first_value_Fleet.h
                 change_level.hpp 
                 my_hero.hpp 
                 game_map.hpp 
