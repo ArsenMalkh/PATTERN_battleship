@@ -1,3 +1,0 @@
-/home/arsenfizm/Desktop/Battl/build/CMakeFiles/rebuild_cache.dir
-/home/arsenfizm/Desktop/Battl/build/CMakeFiles/Game.dir
-/home/arsenfizm/Desktop/Battl/build/CMakeFiles/edit_cache.dir
